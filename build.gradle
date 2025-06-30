@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':payment-gateway')
+    implementation project(':shared')
+    implementation project(':payment-routing')
+    implementation project(':risk-fraud')
+    implementation project(':card-network-emulator')
+    implementation project(':card-token-manager')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+springBoot {
+    mainClass = 'com.example.payment.PaymentGatewayApplication'
+}

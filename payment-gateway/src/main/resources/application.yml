@@ -1,0 +1,20 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /payment-gateway
+
+spring:
+  application:
+    name: payment-gateway
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    com.example.payment: DEBUG
+
+# Custom properties
+payment:
+  default-currency: USD
+  max-retry-attempts: 3
